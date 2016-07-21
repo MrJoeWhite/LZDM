@@ -4,6 +4,7 @@ var upload = require("./upload.js");
  */
 function LongZhu(roomid) {
     this.roomid=roomid;
+    this.start()
 }
 LongZhu.prototype.start=function () {
     var request = require('request');

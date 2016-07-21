@@ -70,8 +70,8 @@ request('http://120.27.94.166:2999/getRooms?platform=longzhu&topn=' + config.top
     rooms.push(roomId);
   }
   myEvents.on("dengyi", function (room) {
-    var longZhu = new LongZhu(room);
-    longZhu.start();
+    new LongZhu(room);
+    // longZhu.start();
   });
   for (var i = 0; i < rooms.length; i++) {
     console.log("-------------");
