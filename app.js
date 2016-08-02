@@ -74,7 +74,7 @@ request('http://120.27.94.166:2999/getRooms?platform=longzhu&topn=' + config.top
     // longZhu.start();
   });
   for (var i = 0; i < rooms.length; i++) {
-    console.log("-------------");
+    // console.log("-------------");
     myEvents.emit("dengyi", rooms[i]);
   }
 });
