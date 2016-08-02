@@ -1,6 +1,6 @@
 var upload = require("./upload.js");
 /**
- * Created by deng on 16-7-21.
+ * Created by deng on 16-7-21.。。
  */
 function LongZhu(roomid) {
     this.roomid=roomid;
