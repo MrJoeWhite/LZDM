@@ -35,7 +35,7 @@ var config = {
     },
 
     sitesetting: ['huya', 'douyu', 'bilibli', 'panda', 'yy'],
-    // sitesetting: ['huya',  'panda', 'yy'],
+    // sitesetting: ['huya',  'panda', 'yy'],,,
     host:"from office",
 
 

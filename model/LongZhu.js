@@ -46,7 +46,7 @@ LongZhu.prototype.start=function () {
                         default:
                             break;
                     }
-                    if (data.length > 1000) {
+                    if (data.length > 100) {
                         // console.log(JSON.stringify(mydata));
                         upload.uploadSerivce(room_id, "longzhu", data);
                         data = [];
