@@ -36,12 +36,16 @@ LongZhu.prototype.start=function () {
                     // console.log(room_id+"-----------"+message.utf8Data);
                     var parse = JSON.parse(message.utf8Data);
                     parse.ctime = new Date().getTime();
+                    console.log(parse.type);
                     switch (parse.type){
                         case "gift":
                             data.push(parse);//{"id":24068996733256,"type":"gift","msg":{"itemType":"flower","time":"\/Date(1469088511960+0800)\/","number":3,"combo":0,"user":{"avatar":"http://q.qlogo.cn/qqapp/100360418/21045BFD5CF55A5BC297AEDB9AC603DC/40","uid":24496430,"username":"","grade":6}}}
                             break;
                         case "chat":
                             data.push(parse);//{"id":24068996733257,"type":"chat","msg":{"user":{"uid":24350092,"username":"黯然销魂","grade":6},"via":3,"content":"算"}}
+                            break;
+                        case "userjoin":
+                            data.push(parse);
                             break;
                         default:
                             break;
