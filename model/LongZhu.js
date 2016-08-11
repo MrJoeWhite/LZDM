@@ -48,7 +48,7 @@ LongZhu.prototype.start=function () {
                     }
                     if (data.length > 100) {
                         // console.log(JSON.stringify(mydata));
-                        upload.uploadSerivce(room_id, "longzhu", data);
+                        upload.uploadSerivce(this.roomid, "longzhu", data);
                         data = [];
                     }
                 }
