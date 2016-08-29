@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var EventEmitter = require('events').EventEmitter;
-var myEvents = new EventEmitter();
+/*var EventEmitter = require('events').EventEmitter;
+var myEvents = new EventEmitter();*/
+
+var schedule = require('node-schedule');
+var rule = new schedule.RecurrenceRule();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -56,7 +59,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-var LongZhu=require('./model/LongZhu');
+/*var LongZhu=require('./model/LongZhu');
 var config = require("./config.js");
 var request = require("request");
 var rooms = [];
@@ -77,6 +80,25 @@ request('http://120.27.94.166:2999/getRooms?platform=longzhu&topn=' + config.top
     // console.log("-------------");
     myEvents.emit("dengyi", rooms[i]);
   }
+});*/
+
+var crawler = require('./model/crawler');
+
+var count = 0,
+    times = [];
+
+for(var i = 0; i < 60; i = i + 10){
+  times.push(i);
+}
+
+rule.second = times;
+schedule.scheduleJob(rule,function () {
+  if(count > 4){
+    console.log("stop long zhu");
+    count = 0;
+    this.cancel();
+  }
+  crawler.crawler(count++);
 });
 
 module.exports = app;
