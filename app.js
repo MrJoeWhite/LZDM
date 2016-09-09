@@ -81,7 +81,8 @@ request('http://120.27.94.166:2999/getRooms?platform=longzhu&topn=' + config.top
     myEvents.emit("dengyi", rooms[i]);
   }
 });*/
-
+var HashMap = require("hashmap").HashMap;
+map = new HashMap();
 var crawler = require('./model/crawler');
 
 var count = 0,

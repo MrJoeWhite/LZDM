@@ -24,7 +24,10 @@ exports.crawler = function (page) {
 
         var parse = JSON.parse(body).data.items;
         for(var i = 0; i < parse.length; i++){
-            myEvents.emit("sendmsg", parse[i].channel.domain);
+            if(map.get(parse[i].channel.domain)==undefined||!map.get(parse[i].channel.domain)){
+                myEvents.emit("sendmsg", parse[i].channel.domain);
+            }
+
         }
         
     });
